@@ -12,9 +12,21 @@ ATank::ATank()
 	TankAiminingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
 
 }
+
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet) 
 {
 	TankAiminingComponent->SetBarrelReference(BarrelToSet);
+}
+
+void ATank::SetTurretReference(UTankTurret* TurretToSet) 
+{
+	TankAiminingComponent->SetTurretReference(TurretToSet);
+}
+
+void ATank::Fire() 
+{
+	auto Time = GetWorld()->GetTimeSeconds();
+	UE_LOG(LogTemp, Warning, TEXT("%f Calling from Tank Fire Method!"), Time);
 }
 
 
